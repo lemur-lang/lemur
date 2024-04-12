@@ -7,6 +7,7 @@ csv module
 staticrecord struct {
     cells   array[value, 256]
 }
+
 value union {
     empty
     str    string
@@ -15,7 +16,7 @@ value union {
 }
 
 record struct {
-    cells   list[value=empty]
+    cells   list[value]
 }
 
 grid list[cells]
@@ -59,7 +60,7 @@ shape union:
     tri triangle
     sqr square
 
-my_shape = shape.cir
+my_shape = shape.cir {{0.0, 0.0}, 10.0}
 if my_shape is shape.cir {
     print("I am a circle!")
 }

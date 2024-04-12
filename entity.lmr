@@ -1,0 +1,21 @@
+entity module
+
+Arrow struct:
+	dir v2s8
+
+Player struct:
+	dir v2s8
+
+Obstacle struct:
+	lives s8 = -1
+
+WinningTile struct:
+	active bool
+
+entity union {
+	arrow 		Arrow
+	player 	 	Player
+	obstacle 	Obstacle
+	winningtile WinningTile
+				None
+}

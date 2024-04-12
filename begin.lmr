@@ -1,0 +1,111 @@
+say (new_line=false) "Hello, world!"
+
+say "Hello, world!"
+
+csv module
+
+staticrecord struct {
+    cells   array[value, 256]
+}
+value union {
+    empty
+    str    string
+    num    number
+    status bool
+}
+
+record struct {
+    cells   list[value=empty]
+}
+
+grid list[cells]
+
+say "grid first first" , grid.first.first , ": union"
+say "grid first first {grid.first.first} union"
+
+point module
+
+point struct {
+    x f32
+    y f32
+}
+
+dim struct:
+    w, h f32
+
+point struct:
+    x f32
+    y f32
+
+circle struct:
+    a point
+    r f32
+
+trianlge struct:
+    a,b,c point
+
+rectangle struct:
+    x, y, w, h f32
+
+square struct {
+    a point
+    l f32
+}
+
+shape union:
+    pt point
+    cir circle
+    rect rectangle
+    tri triangle
+    sqr square
+
+my_shape = shape.cir
+if my_shape is shape.cir {
+    print("I am a circle!")
+}
+
+
+match my_shape:
+    pt:
+        print("I'm a point!")
+    cir:
+        print("I'm a circle!")
+    rect:
+        print("I'm a rectangle!")
+    tri:
+        print("I'm a triangle!")
+    sqr:
+        print("I'm a square!")
+
+distance proc
+(a point, b point)
+c f32 {
+    c = sqrt((a.x - b.x)^2 + (a.y - b.y)^2)
+    return
+}
+
+distance proc (a point, b point) f32:
+	return sqrt((a.x - b.x)^2 + (a.y - b.y)^2)
+
+a = point {1.4, 100.435}
+b = point {0, 0.435}
+a2 = a
+
+c = array [0, 234, 340]
+d = list [0, 234, 340]
+
+z = point {10124.4, 100234.435}
+
+c.first
+c.second
+c.last
+c.size
+
+c[0]
+c[1]
+c[2]
+
+
+lerped = lerp(z.x, b.y, 0.54)
+
+linelength = point.distance(a, lerped)
